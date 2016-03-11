@@ -1,4 +1,4 @@
-package com.fred.algorithm;
+package com.fred.algorithm.jd;
 
 import java.io.*;
 import java.util.Arrays;

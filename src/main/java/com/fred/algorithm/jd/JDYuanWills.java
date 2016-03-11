@@ -1,4 +1,4 @@
-package com.fred.algorithm;
+package com.fred.algorithm.jd;
 
 /**
  * @author Fred Liu(liuxiaokun0410@gmail.com)
