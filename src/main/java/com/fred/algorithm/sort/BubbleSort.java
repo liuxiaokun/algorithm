@@ -13,7 +13,7 @@ public class BubbleSort {
     /**
      *  n 个数字的冒泡排序
      * 一共需要 n-1 次外循环，每一次外循环得到一个最大值，放到数组的后边。
-     * 内循环： m 个数就需要比较 m-1 次。
+     * 内循环： m 个数就需要比较 m-1 次。 每次都是相邻的比较。
      */
     private static int[] bubbleSort1(int[] source) {
 
@@ -36,6 +36,11 @@ public class BubbleSort {
     }
 
 
+    /**
+     *  n 个数字的冒泡排序
+     * 一共需要 n-1 次外循环，每一次外循环得到一个最小值，放到数组的最前边。
+     * 内循环： m 个数就需要比较 m-1 次。 每次都是用第一个和剩下的比较。
+     */
     private static int[] bubbleSort2(int[] source) {
 
 
