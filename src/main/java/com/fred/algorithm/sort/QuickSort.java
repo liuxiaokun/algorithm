@@ -1,5 +1,7 @@
 package com.fred.algorithm.sort;
 
+import java.util.Arrays;
+
 /**
  * @author Fred Liu(liuxiaokun0410@gmail.com)
  * @version 1.7
@@ -13,44 +15,39 @@ public class QuickSort {
      */
 
 
-    private static int[] quickSort(int[] source, int left, int right) {
+    private static int[] quickSort(int[] s, int left, int right) {
 
         if (left < right) {
 
-            int from = left;
-            int to = right;
+            int i = left, j = right, x = s[i];
 
-            while (from < to) {
+            while (i < j) {
 
-                if (source[from] > source[to]) {
-                    int temp;
-                    temp = source[from];
-                    source[from] = source[to];
-                    source[to] = temp;
+                while (i < j && x <= s[j]) {
+                    j--;
                 }
-                from++;
-                to--;
-            }
+                s[i] = s[j];
 
-            quickSort(source, left, from - 1);
-            quickSort(source, from + 1, source.length - 1);
-            //quickSort(source, to + 1, source.length - 1);
+                while (i < j && s[i] <= x) {
+                    i++;
+                }
+                s[j] = s[i];
+            }
+            s[i] = x;
+
+            quickSort(s, left, i - 1);
+            quickSort(s, i + 1, right);
         }
 
-        return source;
+        return s;
+
     }
 
 
     public static void main(String[] args) {
-        int[] source = {5, 2456, 52, 24, 62, 20, 54, 61, 2, 3};
-        printArray(quickSort(source, 0, source.length - 1));
+        int[] source = {5, 2456, 52, 24, 62, 20, 54, 61, 2455, 3};
+        System.out.println(Arrays.toString(quickSort(source, 0, source.length - 1)));
     }
 
 
-    private static void printArray(int[] array) {
-
-        for (int i : array) {
-            System.out.print(i + ", ");
-        }
-    }
 }
